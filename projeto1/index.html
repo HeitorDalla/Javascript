@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 1</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #principal {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #secundario {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            flex-direction: column;
+            border: 1px solid black;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.152);
+        }
+
+        .selecionado {
+            color: white;
+        }
+
+        button {
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            outline: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(160, 160, 160);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="principal">
+        <div id="secundario">
+            <h1>Trocador de Cores</h1>
+            <button id="botaoTrocar">Mude de cor</button>
+        </div>
+    </div>
+    <script>
+        "use strict"
+
+        let cores = ["red", "green", "yellow", "purple", "black", "white", "blue"]
+        let indice = 0
+
+        const principal = document.querySelector("#principal")
+        const secundario = document.querySelector("#secundario")
+        const botaoTroca = document.querySelector("#botaoTrocar")
+        const texto = document.getElementsByTagName("h1")[0]
+
+        botaoTroca.addEventListener("click", (evento) => {
+            document.body.style.backgroundColor = cores[indice] 
+            if (cores[indice] == 'black') {
+                texto.style.color = 'white'
+            }
+            if (cores[indice] == 'white') {
+                texto.style.color = 'black'
+            }
+            indice = (indice + 1) % cores.length
+        }) 
+
+    </script>
+</body>
+</html>
